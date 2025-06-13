@@ -1,0 +1,33 @@
+{% extends "dashboard/base.html" %}
+{% load django_bootstrap5 %}
+
+{% block title %} Prototype Dashboard {% endblock %}
+
+{% block dashboard_name %} Prototype Dashboard {% endblock %}
+
+{% block content %}
+    {% bootstrap_button "Open offcanvas" button_type="button" data_bs_toggle="offcanvas" data_bs_target="#offcanvas" %}
+
+    <br>Welcome to the <b>CPAL</b> Dashboard prototype, made with django 💗
+
+    <div class="container">
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" data-bs-scroll="true" data-bs-backdrop="false" aria-labelledby="offcanvasLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasLabel">Offcanvas</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                Content for the offcanvas goes here. You can place just about any Bootstrap component or custom elements here.
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block modal-message %}
+    This is a <b>prototype</b> dashboard for the <b>CPAL</b> organization.
+    It is designed to be a <b>simple</b>, yet <em>performant</em> dashboard that can be used to create
+    many different types of dashboards with <b>minimal effort</b>.
+    The dashboard is built with <b>Django and Bootstrap</b>, making it easy to customize and extend.
+    <br><br>
+    Please note that this is a <b>prototype</b> and <em>may not have all the features you need</em>. If you have any <b>suggestions or feedback</b>, please let me know!
+{% endblock %}

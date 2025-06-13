@@ -1,4 +1,4 @@
-{% load bootstrap5 %}
+{% load django_bootstrap5 %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -7,21 +7,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Home Page{% endblock %}</title>
     {% bootstrap_css %}
+    <style>
 
+        #pageHeader, #mainContentPusher {
+            transition: margin-left 0.20s ease-in-out;
+        }
+
+        body.offcanvas-active #pageHeader,
+        body.offcanvas-active #mainContentPusher {
+            margin-left: var(--bs-offcanvas-width, 400px);
+        }
+    </style>
 </head>
 <body>
-    <div class="d-flex align-items-start">
-        <h1>Dashboard</h1>
-    </div>
+    <div class="container-fluid">
+        <div id="pageHeader" class="d-flex align-items-start">
+            <h1>{% block dashboard_name %}Dashboard{% endblock %}</h1>
+        </div>
 
-    <script src="{% static 'dashboard/base.js' %}"></script>
-    {% bootstrap_javascript %}
+        <div id="mainContentPusher">
+            {% block content %}Content{% endblock %}
+        </div>
+    </div>
 
     <div id="intro-modal" class="modal" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Modal title</h5>
+            <h5 class="modal-title">{% block modal_title %} Modal Title {% endblock %}</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
@@ -34,8 +47,8 @@
       </div>
     </div>
 
-    <div><p>{% block content %}Content{% endblock %}</p></div>
-
+    {% bootstrap_javascript %}
+    <script src="{% static 'dashboard/base.js' %}"></script>
+    {% bootstrap_messages %}
 </body>
 </html>
-

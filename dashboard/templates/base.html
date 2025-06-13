@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Home Page{% endblock %}</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <div class="d-flex align-items-start">
+        <h1>Dashboard</h1>
+    </div>
+</head>
+<body>
+<div><p>{% block content %}Content{% endblock %}</p></div>
+</body>
+</html>

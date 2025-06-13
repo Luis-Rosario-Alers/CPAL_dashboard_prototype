@@ -1,17 +1,41 @@
+{% load bootstrap5 %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Home Page{% endblock %}</title>
-    {% load bootstrap5 %}
     {% bootstrap_css %}
-    {% bootstrap_javascript %}
+
+</head>
+<body>
     <div class="d-flex align-items-start">
         <h1>Dashboard</h1>
     </div>
-</head>
-<body>
-<div><p>{% block content %}Content{% endblock %}</p></div>
+
+    <script src="{% static 'dashboard/base.js' %}"></script>
+    {% bootstrap_javascript %}
+
+    <div id="intro-modal" class="modal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>{% block modal-message %}...{% endblock %}</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">I Understand</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div><p>{% block content %}Content{% endblock %}</p></div>
+
 </body>
 </html>
+

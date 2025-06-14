@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width initial-scale=1.0">
     <title>{% block title %}Home Page{% endblock %}</title>
     {% bootstrap_css %}
-    <link rel="stylesheet" href="{% static 'dashboard/scss/Header.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/scss/main.css' %}">
 </head>
 <body>
     <div class="container-fluid">
@@ -25,7 +25,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">{% block modal_title %} Modal Title {% endblock %}</h5>
+            <h5 class="modal-title">{% block modal_title %}  {% endblock %}</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
@@ -40,6 +40,11 @@
 
     {% bootstrap_javascript %}
     <script src="{% static 'dashboard/javascript/base.js' %}"></script>
+
+    {% block scripts %}
+        <!-- This is for page-specific scripts -->
+    {% endblock %}
+
     {% bootstrap_messages %}
 </body>
 </html>

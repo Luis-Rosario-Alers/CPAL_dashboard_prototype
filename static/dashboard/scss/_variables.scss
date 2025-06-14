@@ -1,0 +1,28 @@
+@import "../../../node_modules/bootstrap/scss/functions";
+
+$primary: #032c33;
+$secondary: #0b4d4d;
+$tertiary: #f7f7f7;
+
+$accent_color: #f6e69b;
+
+$warning: $accent_color;
+$danger: #871253;
+$danger-text-emphasis: #fdeaf0;
+
+$link-hover-color: #007f96;
+
+@import "../../../node_modules/bootstrap/scss/variables";
+@import "../../../node_modules/bootstrap/scss/variables-dark";
+@import "../../../node_modules/bootstrap/scss/maps";
+@import "../../../node_modules/bootstrap/scss/mixins";
+@import "../../../node_modules/bootstrap/scss/root";
+
+$primary-color: #173c42;
+$secondary-color: #345c5c;
+$third-color: #35444e;
+
+$header-margin: 16px 24px;
+$margin-from-header: 20px;
+
+$sidebar-width: 400px;

@@ -1,0 +1,18 @@
+@use '../variables' as *;
+
+$complementary-margin: $margin-from-header / 2;
+
+#welcome_card a {
+  text-decoration: none;
+
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+  &:hover {
+    color: $link-hover-color;
+  }
+}
+
+#sidebarToggle {
+  font-weight: bold;
+  margin-bottom: $complementary-margin;
+}

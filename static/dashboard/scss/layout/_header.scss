@@ -1,12 +1,4 @@
-@use 'sass:color';
-@use '../../../node_modules/bootstrap/scss/functions';
-@use '../../../node_modules/bootstrap/scss/mixins';
-
-$primary-color: #173c42;
-$secondary-color: #345c5c;
-$third-color: #35444e;
-
-$header-margin: 16px 24px;
+@use '../variables' as *;
 
 #pageHeader {
   background: linear-gradient(
@@ -15,7 +7,7 @@ $header-margin: 16px 24px;
     rgba($secondary-color, 1) 50%,
     rgba($third-color, 1) 100%
   );
-  margin-bottom: 5px;
+  margin-bottom: $margin-from-header;
 }
 
 #cpal_logo {
@@ -31,7 +23,12 @@ $header-margin: 16px 24px;
     margin: $header-margin;
 }
 
-#mainContent.content-shifted {
+#mainContent,
+#pageHeader {
   transition: margin-left 0.3s ease-in-out;
-  margin-left: 300px;
+}
+
+#mainContent.content-shifted,
+#pageHeader.content-shifted {
+  margin-left: 400px;
 }

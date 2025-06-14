@@ -1,0 +1,49 @@
+# Before reading this file, please install pre-commit using by doing
+# `pip install pre-commit` and then run the following command to install `pre-commit install`
+
+# Note: if you are trying to figure out a way to skip pre-commit hooks,
+# use SKIP=COMMIT_HOOK_ID comma separated to skip specific hooks
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.2.0
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: check-yaml
+    -   id: check-added-large-files
+    -   id: check-merge-conflict
+    -   id: check-json
+    -   id: name-tests-test
+        args: ['--django']
+    -   id: pretty-format-json
+        args: ['--autofix']
+    -   id: requirements-txt-fixer
+        args: ['--remove-unused-reqs', '--remove-duplicate-reqs']
+-   repo: https://github.com/PyCQA/flake8
+    rev: 7.2.0
+    hooks:
+      - id: flake8
+        args: ['--max-line-length', '88']
+        exclude: "^docs/|^tests/|^migrations/|^static/|^media/|^node_modules/|^dist/|^build/|settings\\.py"
+- repo: https://github.com/adamchainz/django-upgrade
+  rev: 1.25.0
+  hooks:
+    - id: django-upgrade
+- repo: https://github.com/PyCQA/isort
+  rev: 6.0.1
+  hooks:
+    - id: isort
+      args: ['--profile', 'black']
+- repo: https://github.com/psf/black
+  rev: 25.1.0
+  hooks:
+    - id: black
+      args: ['--line-length', '88']
+-   repo: local
+    hooks:
+    -   id: eslint
+        name: eslint
+        entry: npm run lint
+        language: system
+        types: [javascript]
+        pass_filenames: false

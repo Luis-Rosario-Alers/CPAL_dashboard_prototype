@@ -4,28 +4,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width initial-scale=1.0">
     <title>{% block title %}Home Page{% endblock %}</title>
     {% bootstrap_css %}
-    <style>
-
-        #pageHeader, #mainContentPusher {
-            transition: margin-left 0.20s ease-in-out;
-        }
-
-        body.offcanvas-active #pageHeader,
-        body.offcanvas-active #mainContentPusher {
-            margin-left: var(--bs-offcanvas-width, 400px);
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'dashboard/scss/Header.css' %}">
 </head>
 <body>
     <div class="container-fluid">
-        <div id="pageHeader" class="d-flex align-items-start">
-            <h1>{% block dashboard_name %}Dashboard{% endblock %}</h1>
+        <div id="pageHeader" class="d-flex align-items-start .bg-primary.bg-gradient">
+            <img src="{% static 'dashboard/images/CPAL_logo.png' %}" id="cpal_logo" class="img-fluid" alt="Logo">
+            <h1 id="dashboard_name">{% block dashboard_name %}Dashboard{% endblock %}</h1>
         </div>
 
-        <div id="mainContentPusher">
+        <div id="mainContent">
             {% block content %}Content{% endblock %}
         </div>
     </div>
@@ -38,7 +29,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <p>{% block modal-message %}...{% endblock %}</p>
+            <p>{% block modal_message %}...{% endblock %}</p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-primary" data-bs-dismiss="modal">I Understand</button>
@@ -48,7 +39,7 @@
     </div>
 
     {% bootstrap_javascript %}
-    <script src="{% static 'dashboard/base.js' %}"></script>
+    <script src="{% static 'dashboard/javascript/base.js' %}"></script>
     {% bootstrap_messages %}
 </body>
 </html>

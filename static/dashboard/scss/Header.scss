@@ -1,0 +1,37 @@
+@use 'sass:color';
+@use '../../../node_modules/bootstrap/scss/functions';
+@use '../../../node_modules/bootstrap/scss/mixins';
+
+$primary-color: #173c42;
+$secondary-color: #345c5c;
+$third-color: #35444e;
+
+$header-margin: 16px 24px;
+
+#pageHeader {
+  background: linear-gradient(
+    95deg,
+    rgba($primary-color, 1) 0%,
+    rgba($secondary-color, 1) 50%,
+    rgba($third-color, 1) 100%
+  );
+  margin-bottom: 5px;
+}
+
+#cpal_logo {
+  max-width: 200px;
+  max-height: 100px;
+  margin: $header-margin;
+}
+
+#dashboard_name {
+    color: #ffffff !important;
+    font-size: 24px;
+    font-weight: bold;
+    margin: $header-margin;
+}
+
+#mainContent.content-shifted {
+  transition: margin-left 0.3s ease-in-out;
+  margin-left: 300px;
+}
